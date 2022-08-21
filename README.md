@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="Project screenshot" src=".github/gooogle-auth-97.png" width="100%">
+  <img alt="Project screenshot" src=".github/gooogle-auth-97.svg" width="100%">
 </p>
 
 <h2>Site published <a href="https://gooogleauth97.vercel.app/">here</a></h2>
