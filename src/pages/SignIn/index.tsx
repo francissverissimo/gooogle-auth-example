@@ -6,17 +6,16 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth } from "../../services/firebase";
-import { GoogleLogo, SignIn as SignInIcon ,SignOut } from "phosphor-react";
+import { GoogleLogo, SignIn as SignInIcon, SignOut } from "phosphor-react";
 
 import "./styles.scss";
 
 export function SigIn() {
-  const [user, setUser] = useState<User>();
+  const [user, setUser] = useState<User | undefined>(undefined);
 
   async function handleGoogleSigIn() {
     const provider = new GoogleAuthProvider();
-
-    await signInWithPopup(auth, provider)
+    signInWithPopup(auth, provider)
       .then((result) => setUser(result.user))
       .catch((error) => console.log(error));
   }
@@ -39,7 +38,13 @@ export function SigIn() {
     <div className="container">
       {user ? (
         <div className="user">
-          {user.photoURL && <img src={user.photoURL} alt="Foto do usuário" />}
+          {user.photoURL && (
+            <img
+              src={user.photoURL}
+              alt="Foto do usuário"
+              referrerPolicy="no-referrer"
+            />
+          )}
           <strong>{user.displayName}</strong>
           <small>{user.email}</small>
         </div>
